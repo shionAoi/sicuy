@@ -1,0 +1,19 @@
+.env
+node_modules/
+.idea/
+.vscode/
+Dockerfile
+.logs/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+.env.test
+
+# logs
+logs/
