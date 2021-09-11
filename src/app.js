@@ -2,7 +2,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const { ObjectId } = require('mongodb');
 const { ApolloServer } = require('apollo-server-express');
-const { express: voyagerMiddleware } = require('graphql-voyager/middleware');
+// const { express: voyagerMiddleware } = require('graphql-voyager/middleware');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require("helmet");
@@ -38,6 +38,7 @@ const options = {
 if (process.env.NODE_ENV === 'production') {
     options.debug = false;
     options.introspection = true;
+    options.playground = false;
 }
 
 const server = new ApolloServer({ ...options });
@@ -66,13 +67,13 @@ mutations.forEach(([_, value]) => {
 // Setup express server
 const app = express();
 
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(helmet());
-// }
+if (process.env.NODE_ENV === 'production') {
+    app.use(helmet());
+}
 app.disable('x-powered-by');
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }));
+// app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }));
 
 // Set up storage
 app.use(fileUpload({
