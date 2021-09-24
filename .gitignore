@@ -2,7 +2,6 @@
 node_modules/
 .idea/
 .vscode/
-Dockerfile
 .logs/
 
 # Optional npm cache directory
