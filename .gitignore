@@ -15,5 +15,7 @@ Dockerfile
 .env
 .env.test
 
+mongo-init.js
+
 # logs
 logs/

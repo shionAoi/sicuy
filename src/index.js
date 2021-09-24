@@ -17,7 +17,8 @@ const port = config.PORT || 8000;
 MongoClient.connect(
     config.MONGODB_URI,
     {
-        connectTimeoutMS: 200,
+        serverSelectionTimeoutMS: 30000,
+        connectTimeoutMS: 30000,
         useNewUrlParser: true,
         useUnifiedTopology: true
     },
